@@ -1,0 +1,15 @@
+npm install @libsql/client
+
+  import { createClient } from "@libsql/client";
+
+const client = createClient({
+  url: "libsql://...",
+  authToken: "...",
+});
+
+const result = await client.execute("SELECT * FROM users");
+
+const result = await client.execute({
+  sql: "SELECT * FROM users WHERE id = ?",
+  args: [1],
+});
